@@ -234,6 +234,133 @@ function copyText() {
 
   </div>
 </div>
+  <style>
+  .hof-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .hof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .hof-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    border-top: 2px solid #ff5f6d;
+  }
+
+  .hof-header {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffc371;
+    text-transform: uppercase;
+  }
+
+  .hof-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hof-item {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+  }
+
+  .hof-label { opacity: 0.6; font-weight: 400; }
+  .hof-value { font-weight: 700; color: #fff; }
+
+  .divider-star {
+    text-align: center;
+    margin: 20px 0;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 10px;
+  }
+</style>
+
+<div id="hall-of-fame" class="hof-container">
+  <div style="text-align: center;">
+    <h2 class="section-title"><span class="sunset-text">Hall of Fame</span></h2>
+    <p style="opacity: 0.6;">Honoring those who built and lead the Gearblock legacy.</p>
+  </div>
+
+  <div class="divider-star">━━━━━ ★ ━━━━━</div>
+
+  <div class="hof-grid">
+    
+    <div class="hof-section" style="border-top-color: #ff5f6d;">
+      <div class="hof-header">👑 The Foundation</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">Original Founder</span><span class="hof-value">Idlest (OG)</span></div>
+        <div class="hof-item"><span class="hof-label">Co-Founder</span><span class="hof-value">OfficialVoidzmc ✨</span></div>
+        <div class="hof-item"><span class="hof-label">Current Owner</span><span class="hof-value">6Kmlx 👑</span></div>
+        <div class="hof-item"><span class="hof-label">Co-Owner</span><span class="hof-value">Ethancp2010 🛡️</span></div>
+      </div>
+    </div>
+
+    <div class="hof-section" style="border-top-color: #ffc371;">
+      <div class="hof-header">⚔️ Staff Registry</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">Master Builder</span><span class="hof-value">A_Adwen 🛠️</span></div>
+        <div class="hof-item"><span class="hof-label">Head Moderator</span><span class="hof-value">J3nsen1 ⚡</span></div>
+        <div class="hof-item"><span class="hof-label">Trial Staff</span><span class="hof-value" style="color: #2ecc71;">Open! ✉️</span></div>
+      </div>
+    </div>
+
+    <div class="hof-section" style="border-top-color: #34ebeb;">
+      <div class="hof-header">📈 Milestones</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">First Player</span><span class="hof-value">6Kmlx</span></div>
+        <div class="hof-item"><span class="hof-label">Release Date</span><span class="hof-value">Nov 1st 2025</span></div>
+        <div class="hof-item"><span class="hof-label">Peak Players</span><span class="hof-value">15 Online</span></div>
+      </div>
+    </div>
+
+    <div class="hof-section" style="border-top-color: #ff55ff;">
+      <div class="hof-header">💎 Supporters</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">Top Voter</span><span class="hof-value" style="opacity: 0.5;">Waiting...</span></div>
+        <div class="hof-item"><span class="hof-label">Top Donator</span><span class="hof-value">Ethancp2010 ($10)</span></div>
+      </div>
+    </div>
+
+    <div class="hof-section" style="border-top-color: #ff5555;">
+      <div class="hof-header">🏆 Skill Leaders</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">Combat King</span><span class="hof-value">OfficialVoidzmc ⚔️</span></div>
+        <div class="hof-item"><span class="hof-label">Wealthiest</span><span class="hof-value" style="opacity: 0.5;">[Pending]</span></div>
+        <div class="hof-item"><span class="hof-label">Fastest Leveler</span><span class="hof-value">6Kmlx ⚡</span></div>
+      </div>
+    </div>
+
+    <div class="hof-section" style="border-top-color: #aaaaaa;">
+      <div class="hof-header">💫 Honorary</div>
+      <div class="hof-list">
+        <div class="hof-item"><span class="hof-label">Community MVP</span><span class="hof-value">EJP1014 💡</span></div>
+        <div class="hof-item"><span class="hof-label">Rising Star</span><span class="hof-value">AshDawgPVP 👀</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <style>
   .staff-container {
