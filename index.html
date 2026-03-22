@@ -83,154 +83,255 @@ function copyText() {
 </script>
 
 <style>
-  /* Modern Grid Layout */
-  .update-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
+  .update-log-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
   }
 
-  /* Card Base Styling */
-  .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-align: left;
+  .log-entry {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+    position: relative;
+    padding-left: 10px;
   }
 
-  .feature-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* The "Awakening" Power Line */
+  .log-entry::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% + 10px);
+    background: linear-gradient(to bottom, #ff5f6d, #ffc371, transparent);
+    opacity: 0.3;
   }
 
-  .card-title {
-    font-size: 1.4rem;
+  .log-entry:last-child::before { display: none; }
+
+  .log-node {
+    min-width: 40px;
+    height: 40px;
+    background: #111;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+
+  .log-content {
+    text-align: left;
+    padding-top: 5px;
+  }
+
+  .log-title {
+    font-size: 1.6rem;
     font-weight: 800;
-    margin-bottom: 12px;
-    display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
-  }
-
-  .card-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.8;
-    color: #eee;
-  }
-
-  /* Specific Highlight Variants */
-  .gold-glow {
-    border: 2px solid #FFD700 !important;
-    background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0));
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
-  }
-
-  .red-warning {
-    border: 1px solid #ff4444 !important;
-    background: rgba(255, 68, 68, 0.05);
-  }
-
-  .headline-v15 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 40px;
     display: block;
-    background: linear-gradient(to right, #fff, #888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .log-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #ccc;
+    display: block;
+  }
+
+  /* Status Colors */
+  .node-gold { border-color: #FFD700; color: #FFD700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+  .node-red { border-color: #ff4444; color: #ff4444; box-shadow: 0 0 15px rgba(255, 68, 68, 0.3); }
+  .node-white { border-color: #eee; color: #eee; }
+
+  .log-entry:hover .log-node {
+    transform: scale(1.2);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 </style>
 
-<div id="update" style="padding: 60px 0;">
-  <a class="headline-v15">GEARBLOCK v1.5: THE AWAKENING ⚡</a>
+<div id="update" class="update-log-container">
+  <a class="headline-v15" style="text-align: center; display: block; margin-bottom: 80px;">v1.5: THE AWAKENING</a>
 
-  <div class="update-container">
-
-    <div class="feature-card gold-glow">
-      <div>
-        <span class="card-title" style="color: #FFD700;">💰 Legacy Funding</span>
-        <p class="card-text">
-          Massive salute to <b>Ethan Parker</b>. With <b>12,000+ credits</b> secured, the network is officially future-proof. 
-          This support made v1.5 and our custom domain a reality.
-        </p>
-      </div>
+  <div class="log-entry">
+    <div class="log-node node-gold">💰</div>
+    <div class="log-content">
+      <span class="log-title" style="color: #FFD700;">Legacy Funding</span>
+      <span class="log-text">
+        Massive salute to <b>Ethan Parker</b>. With <b>12,000+ credits</b> secured, the network is officially future-proof. This support made v1.5 and our custom domain a reality.
+      </span>
     </div>
-
-    <div class="feature-card">
-      <div>
-        <span class="card-title" style="color: #fff;">👑 Network Ranks</span>
-        <p class="card-text">
-          Stand out in the <b>Dynamic Tablist</b>. Ranks are handled manually via Discord:<br><br>
-          • <b>VIP:</b> Custom prefix & colors<br>
-          • <b>MVP:</b> All VIP + Lobby Flight<br>
-          • <b>FOUNDER:</b> The ultimate legacy status.
-        </p>
-      </div>
-    </div>
-
-    <div class="feature-card">
-      <div>
-        <span class="card-title" style="color: #fff;">🔫 Warfare Expansion</span>
-        <p class="card-text">
-          Call of Duty, reimagined in Minecraft. High-res textures on legendary battlefields:<br><br>
-          <b>Nuketown | Gulag | Baywatch | Stormfront</b>
-        </p>
-      </div>
-    </div>
-
-    <div class="feature-card red-warning">
-      <div>
-        <span class="card-title" style="color: #ff4444;">⚠️ The Backrooms</span>
-        <p class="card-text">
-          Reality is thinning. If you <b>noclip</b> through the lobby floor, stay calm. 
-          Find the exit before the humming stops... or you might never leave.
-        </p>
-      </div>
-    </div>
-
   </div>
+
+  <div class="log-entry">
+    <div class="log-node node-white">👑</div>
+    <div class="log-content">
+      <span class="log-title">Network Ranks</span>
+      <span class="log-text">
+        Stand out in the <b>Dynamic Tablist</b>. Ranks are handled manually via Discord:<br>
+        • <b>VIP:</b> Custom prefix & colors<br>
+        • <b>MVP:</b> All VIP + Lobby Flight<br>
+        • <b>FOUNDER:</b> The ultimate legacy status.
+      </span>
+    </div>
+  </div>
+
+  <div class="log-entry">
+    <div class="log-node node-white">🔫</div>
+    <div class="log-content">
+      <span class="log-title">Warfare Expansion</span>
+      <span class="log-text">
+        Call of Duty, reimagined in Minecraft. High-res textures on legendary battlefields:<br>
+        <b>Nuketown | Gulag | Baywatch | Stormfront</b>
+      </span>
+    </div>
+  </div>
+
+  <div class="log-entry">
+    <div class="log-node node-red">⚠️</div>
+    <div class="log-content">
+      <span class="log-title" style="color: #ff4444;">The Backrooms</span>
+      <span class="log-text">
+        Reality is thinning. If you <b>noclip</b> through the lobby floor, stay calm. Find the exit before the humming stops... or you might never leave.
+      </span>
+    </div>
+  </div>
+
 </div>
-<!-- FEATURES -->
-<div id="more"></div>
-<div class="main2">
-  <a class="headline">What We Offer</a>
 
-  <div class="main2_features_div">
+<style>
+  .offers-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
 
-    <div class="main2_feature">
-      <img src="media/Survival.png" class="feature_img">
-      <a class="main2_feature_headline">Survival SMP</a>
-      <a class="main2_feature_text">Economy, claims, ranks & quests.</a>
+  .offer-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 15px;
+    transition: 0.3s;
+  }
+
+  /* The "Connecting Line" effect */
+  .offer-row::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, #ff5f6d, transparent);
+    opacity: 0.3;
+  }
+
+  /* Remove line from the last item */
+  .offer-row:last-child::before { display: none; }
+
+  .offer-img-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .offer-img-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff5f6d;
+    background: #111;
+    padding: 5px;
+    box-shadow: 0 0 15px rgba(255, 95, 109, 0.2);
+  }
+
+  .offer-content {
+    text-align: left;
+  }
+
+  .offer-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    display: block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .offer-desc {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-top: 5px;
+    display: block;
+  }
+
+  .offer-row:hover .offer-img-circle {
+    transform: scale(1.1) rotate(5deg);
+    border-color: #ffc371;
+    box-shadow: 0 0 25px rgba(255, 195, 113, 0.4);
+  }
+
+  .offer-row:hover .offer-title {
+    color: #ffc371;
+  }
+</style>
+
+<div id="more" class="offers-container">
+  <a class="headline-v15" style="text-align: center; display: block; margin-bottom: 60px;">WHAT WE OFFER</a>
+
+  <div class="offer-row">
+    <div class="offer-img-wrapper">
+      <img src="media/Survival.png" class="offer-img-circle" alt="Survival">
     </div>
-
-    <div class="main2_feature">
-      <img src="media/pvp.png" class="feature_img">
-      <a class="main2_feature_headline">Minigames</a>
-      <a class="main2_feature_text">BedWars, TNT Run, Spleef + more.</a>
+    <div class="offer-content">
+      <a class="offer-title">Survival SMP</a>
+      <a class="offer-desc">A player-driven economy with claims, ranks, and custom quests.</a>
     </div>
+  </div>
 
-    <div class="main2_feature">
-      <img src="media/Pvp1.png" class="feature_img">
-      <a class="main2_feature_headline">PvP</a>
-      <a class="main2_feature_text">Fair fights, kits, leaderboards.</a>
+  <div class="offer-row">
+    <div class="offer-img-wrapper">
+      <img src="media/pvp.png" class="offer-img-circle" alt="Minigames">
     </div>
+    <div class="offer-content">
+      <a class="offer-title">Minigames</a>
+      <a class="offer-desc">Fast-paced classics: BedWars, TNT Run, Spleef, and more.</a>
+    </div>
+  </div>
 
-    <div class="main2_feature">
-      <img src="media/Creative.png" class="feature_img">
-      <a class="main2_feature_headline">Creative</a>
-      <a class="main2_feature_text">Plot-based free building.</a>
+  <div class="offer-row">
+    <div class="offer-img-wrapper">
+      <img src="media/Pvp1.png" class="offer-img-circle" alt="PvP">
     </div>
+    <div class="offer-content">
+      <a class="offer-title">PvP Arena</a>
+      <a class="offer-desc">Skill-based combat featuring custom kits and competitive leaderboards.</a>
+    </div>
+  </div>
+
+  <div class="offer-row">
+    <div class="offer-img-wrapper">
+      <img src="media/Creative.png" class="offer-img-circle" alt="Creative">
+    </div>
+    <div class="offer-content">
+      <a class="offer-title">Creative Plots</a>
+      <a class="offer-desc">Showcase your architectural skills with plot-based free building.</a>
+    </div>
+  </div>
+
+</div>
 
   </div>
 </div>
@@ -363,122 +464,130 @@ function copyText() {
 </div>
 
 <style>
-  .staff-container {
-    max-width: 1100px;
+  .staff-registry-container {
+    max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
-    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
   }
 
-  /* Leadership Tier */
-  .staff-tier-leadership {
+  .staff-entry {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  }
-
-  /* Support Tier */
-  .staff-tier-support {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .staff-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    width: 220px;
-    transition: all 0.3s ease;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
     position: relative;
-    overflow: hidden;
+    padding: 10px;
   }
 
-  .staff-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.08);
+  /* The vertical lineage line */
+  .staff-entry::before {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 65px;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
   }
 
-  .staff-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 12px;
-    margin-bottom: 15px;
+  .staff-entry:last-child::before { display: none; }
+
+  .staff-pfp {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
     object-fit: cover;
+    z-index: 2;
     border: 2px solid rgba(255, 255, 255, 0.1);
+    background: #111;
   }
 
-  /* Rank Colors */
-  .rank-tag {
-    font-size: 0.75rem;
+  .staff-info { text-align: left; }
+
+  .staff-role {
+    font-size: 0.7rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
 
-  .owner-card { border: 2px solid #ff5f6d; box-shadow: 0 0 15px rgba(255, 95, 109, 0.2); }
-  .owner-tag { color: #ff5f6d; }
-
-  .admin-card { border: 1px solid #ffc371; }
-  .admin-tag { color: #ffc371; }
-
-  .mod-tag { color: #2ecc71; }
-  .trial-tag { color: #3498db; }
-
-  .staff-name {
-    font-size: 1.2rem;
+  .staff-username {
+    font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
     display: block;
   }
+
+  /* Unique Rank Highlights */
+  .rank-og { color: #eb4d3d; } /* Red for Founders */
+  .rank-owner { color: #ff5f6d; } /* Sunset Red for Current Owner */
+  .rank-co { color: #ffc371; } /* Sunset Orange for Co-Owner */
+  .rank-mod { color: #2ecc71; } /* Green for Mods */
+  .rank-trial { color: #3498db; } /* Blue for Trial */
+
+  .staff-entry:hover .staff-pfp {
+    transform: scale(1.1);
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  }
 </style>
 
-<div id="staff" class="staff-container">
-  <a class="headline-v15" style="margin-bottom: 50px; display: block;">THE GEARBLOCK TEAM</a>
+<div id="staff" class="staff-registry-container">
+  <a class="headline-v15" style="text-align: center; display: block; margin-bottom: 60px;">THE REGISTRY</a>
 
-  <div class="staff-tier-leadership">
-    
-    <div class="staff-card owner-card">
-      <img class="staff-img" src="media/001.png" alt="Owner">
-      <span class="rank-tag owner-tag">[Owner]</span>
-      <span class="staff-name">6kamali</span>
+  <div class="staff-entry">
+    <img src="media/idlest.png" class="staff-pfp" alt="OG Founder">
+    <div class="staff-info">
+      <span class="staff-role rank-og">Original Founder</span>
+      <span class="staff-username">Idlest (OG)</span>
     </div>
-
-    <div class="staff-card admin-card">
-      <img class="staff-img" src="media/ethan2.png" alt="Co-Owner">
-      <span class="rank-tag admin-tag">[Co-Owner]</span>
-      <span class="staff-name">Ethancp2020</span>
-    </div>
-
-    <div class="staff-card" style="opacity: 0.8;">
-      <img class="staff-img" src="media/Void.png" alt="Admin">
-      <span class="rank-tag" style="color: #888;">[Retired Co-Owner]</span>
-      <span class="staff-name">Voids</span>
-    </div>
-
   </div>
 
-  <div class="staff-tier-support">
-
-    <div class="staff-card">
-      <img class="staff-img" src="media/adwen.png" alt="Mod">
-      <span class="rank-tag mod-tag">[Moderator]</span>
-      <span class="staff-name">A_Adwen</span>
+  <div class="staff-entry">
+    <img src="media/Void.png" class="staff-pfp" alt="Co-Founder">
+    <div class="staff-info">
+      <span class="staff-role rank-og">Retired Co-Owner</span>
+      <span class="staff-username">Voids</span>
     </div>
-
-    <div class="staff-card">
-      <img class="staff-img" src="media/ejp.png" alt="Trial Mod">
-      <span class="rank-tag trial-tag">[Trial Mod]</span>
-      <span class="staff-name">J3nson</span>
-    </div>
-
   </div>
+
+  <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 40px 0;">
+
+  <div class="staff-entry">
+    <img src="media/001.png" class="staff-pfp" style="border-color: #ff5f6d;" alt="Owner">
+    <div class="staff-info">
+      <span class="staff-role rank-owner">Current Owner</span>
+      <span class="staff-username">6kamali</span>
+    </div>
+  </div>
+
+  <div class="staff-entry">
+    <img src="media/ethan2.png" class="staff-pfp" style="border-color: #ffc371;" alt="Co-Owner">
+    <div class="staff-info">
+      <span class="staff-role rank-co">Co-Owner</span>
+      <span class="staff-username">Ethancp2020</span>
+    </div>
+  </div>
+
+  <div class="staff-entry">
+    <img src="media/adwen.png" class="staff-pfp" alt="Mod">
+    <div class="staff-info">
+      <span class="staff-role rank-mod">Moderator</span>
+      <span class="staff-username">A_Adwen</span>
+    </div>
+  </div>
+
+  <div class="staff-entry">
+    <img src="media/ejp.png" class="staff-pfp" alt="Trial Mod">
+    <div class="staff-info">
+      <span class="staff-role rank-trial">Trial Mod</span>
+      <span class="staff-username">J3nson</span>
+    </div>
+  </div>
+
 </div>
 
 <style>
@@ -519,11 +628,13 @@ function copyText() {
       <div class="card">
         <h2 style="margin-bottom: 5px;">#2</h2>
         <h3>[TOP VOTER]</h3>
+        <h3>Votes Disabled</h3>
         <p style="font-size: 0.8rem; opacity: 0.6;">Most Votes This Month</p>
       </div>
       <div class="card">
         <h2 style="margin-bottom: 5px;">#3</h2>
         <h3>[WARFARE CHAMP]</h3>
+        <h3>6Kmlx</h3>
         <p style="font-size: 0.8rem; opacity: 0.6;">Highest K/D on Nuketown</p>
       </div>
     </div>
