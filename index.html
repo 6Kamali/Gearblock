@@ -235,64 +235,125 @@ function copyText() {
   </div>
 </div>
 
-<!-- STAFF -->
-<div id="staff"></div>
-<div class="main5">
-  <a class="headline">Gearblock Staff</a>
+<style>
+  .staff-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-  <div class="main5_staff_div">
+  /* Leadership Tier */
+  .staff-tier-leadership {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
 
-    <div class="staff_row">
-      <div class="main5_admins_div main5_admins_dev_type2 uniform_card">
-        <img class="main5_admins_img" src="media/001.png" alt="Owner">
-        <div class="main5_admins_description_div">
-          <a class="main5_admins_description_rank main5_admins_description_rank_owner">[Owner]</a>
-          <a class="main5_admins_description_title">6kamali</a>
-        </div>
-      </div>
+  /* Support Tier */
+  .staff-tier-support {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-      <div class="main5_admins_div main5_admins_dev_type2 uniform_card">
-        <img class="main5_admins_img" src="media/ethan2.png" alt="Co-Owner">
-        <div class="main5_admins_description_div">
-          <a class="main5_admins_description_rank main5_admins_description_rank_admin">[Co-Owner]</a>
-          <a class="main5_admins_description_title">Ethancp2020</a>
-        </div>
-      </div>
+  .staff-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 220px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
 
-      <div class="main5_admins_div main5_admins_dev_type2 uniform_card">
-        <img class="main5_admins_img" src="media/Void.png" alt="Admin">
-        <div class="main5_admins_description_div">
-          <a class="main5_admins_description_rank main5_admins_description_rank_admin">[Retired Co-Owner]</a>
-          <a class="main5_admins_description_title">Voids</a>
-        </div>
-      </div>
+  .staff-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .staff-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Rank Colors */
+  .rank-tag {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .owner-card { border: 2px solid #ff5f6d; box-shadow: 0 0 15px rgba(255, 95, 109, 0.2); }
+  .owner-tag { color: #ff5f6d; }
+
+  .admin-card { border: 1px solid #ffc371; }
+  .admin-tag { color: #ffc371; }
+
+  .mod-tag { color: #2ecc71; }
+  .trial-tag { color: #3498db; }
+
+  .staff-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+  }
+</style>
+
+<div id="staff" class="staff-container">
+  <a class="headline-v15" style="margin-bottom: 50px; display: block;">THE GEARBLOCK TEAM</a>
+
+  <div class="staff-tier-leadership">
+    
+    <div class="staff-card owner-card">
+      <img class="staff-img" src="media/001.png" alt="Owner">
+      <span class="rank-tag owner-tag">[Owner]</span>
+      <span class="staff-name">6kamali</span>
     </div>
 
-    <div class="main5_supporter_div">
-      <div class="main5_supporters_div uniform_card">
-        <img class="main5_supporters_img" src="media/adwen.png" alt="Mod">
-        <div class="main5_supporters_description_div">
-          <a class="main5_supporters_description_rank">[Moderator]</a>
-          <a class="main5_supporters_description_title">A_Adwen</a>
-        </div>
-      </div>
+    <div class="staff-card admin-card">
+      <img class="staff-img" src="media/ethan2.png" alt="Co-Owner">
+      <span class="rank-tag admin-tag">[Co-Owner]</span>
+      <span class="staff-name">Ethancp2020</span>
+    </div>
 
-      <div class="main5_supporters_div uniform_card">
-        <img class="main5_supporters_img" src="media/ejp.png" alt="Trial Mod">
-        <div class="main5_supporters_description_div">
-          <a class="main5_supporters_description_rank">[Trial Mod]</a>
-          <a class="main5_supporters_description_title">J3nson</a>
-        </div>
-      </div>
+    <div class="staff-card" style="opacity: 0.8;">
+      <img class="staff-img" src="media/Void.png" alt="Admin">
+      <span class="rank-tag" style="color: #888;">[Retired Co-Owner]</span>
+      <span class="staff-name">Voids</span>
+    </div>
+
+  </div>
+
+  <div class="staff-tier-support">
+
+    <div class="staff-card">
+      <img class="staff-img" src="media/adwen.png" alt="Mod">
+      <span class="rank-tag mod-tag">[Moderator]</span>
+      <span class="staff-name">A_Adwen</span>
+    </div>
+
+    <div class="staff-card">
+      <img class="staff-img" src="media/ejp.png" alt="Trial Mod">
+      <span class="rank-tag trial-tag">[Trial Mod]</span>
+      <span class="staff-name">J3nson</span>
     </div>
 
   </div>
 </div>
-  Let's flesh this out with the "heavy hitters"—the sections that make a server feel like a massive, organized network rather than just a hobby project.
 
-Here are 6 additional high-impact sections, including a formal Staff Application portal, a "Hall of Fame," and a "Server Lore" archive.
-
-HTML
 <style>
   .apply-btn { background: #ff5f6d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; transition: 0.3s; }
   .apply-btn:hover { background: #ffc371; transform: scale(1.05); }
@@ -541,6 +602,189 @@ HTML
 </section>
     </div>
   </section>
+  <style>
+  .faq-category-title { color: #ffc371; font-size: 1.4rem; margin: 40px 0 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+  details { background: rgba(255,255,255,0.03); margin-bottom: 8px; border-radius: 5px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+  summary { padding: 15px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  summary::after { content: '＋'; color: #ff5f6d; }
+  details[open] summary::after { content: '－'; }
+  .faq-content { padding: 0 15px 15px 15px; opacity: 0.8; line-height: 1.6; font-size: 0.95rem; color: #ccc; }
+</style>
+
+<section id="real-faq" style="max-width: 800px; margin: auto; text-align: left; padding-bottom: 100px;">
+  
+  <div class="faq-category-title">🌐 Connection & Domain</div>
+  
+  <details>
+    <summary>What is the official server IP?</summary>
+    <div class="faq-content">The official IP is <b>play.gearblock.net</b>. The old .me address is no longer the primary way to connect.</div>
+  </details>
+
+  <details>
+    <summary>Why did the domain change to .net?</summary>
+    <div class="faq-content">We moved to a professional .net domain to ensure better stability and a more permanent home for the Kamali Network.</div>
+  </details>
+
+  <details>
+    <summary>Is the website and server hosted together?</summary>
+    <div class="faq-content">The website is hosted via GitHub Pages at <b>www.gearblock.net</b>, while the Minecraft server runs on the Exaroton network.</div>
+  </details>
+
+  <details>
+    <summary>What Minecraft version do I need?</summary>
+    <div class="faq-content">Gearblock v1.5 is built for 1.20.x versions. Ensure you are on a modern Java Edition client for the best experience.</div>
+  </details>
+
+  <div class="faq-category-title">⚔️ Warfare Expansion</div>
+
+  <details>
+    <summary>What Call of Duty maps are available?</summary>
+    <div class="faq-content">Currently, we have fully functional recreations of <b>Nuketown, Gulag, Baywatch,</b> and <b>Stormfront</b>.</div>
+  </details>
+
+  <details>
+    <summary>Do the guns have custom textures?</summary>
+    <div class="faq-content">Yes. We use realistic gun textures to match the Call of Duty theme of the Warfare maps.</div>
+  </details>
+
+  <details>
+    <summary>What is the new map selection hub?</summary>
+    <div class="faq-content">v1.5 introduced a centralized hub where players can specifically choose between Warzone and Hide N Seek modes.</div>
+  </details>
+
+  <details>
+    <summary>Are there NPCs in the lobby?</summary>
+    <div class="faq-content">Yes, new NPCs have been added to the lobbies to help with navigation and game mode selection.</div>
+  </details>
+
+  <div class="faq-category-title">💰 Credits & Funding</div>
+
+  <details>
+    <summary>How was the server funded?</summary>
+    <div class="faq-content">The server recently received a major donation from <b>Ethan Parker</b>, which secured the domain and added 12,200 credits to the network.</div>
+  </details>
+
+  <details>
+    <summary>What do the credits pay for?</summary>
+    <div class="faq-content">Credits are used to keep the Exaroton server online and maintain high-performance hardware for our players.</div>
+  </details>
+
+  <details>
+    <summary>How do I get a rank like VIP or MVP?</summary>
+    <div class="faq-content">Ranks are currently handled manually through the <b>Kamali Network Discord</b>. Contact Allee or the staff team to inquire.</div>
+  </details>
+
+  <details>
+    <summary>What are the Founder rank perks?</summary>
+    <div class="faq-content">The Founder rank is an exclusive status for those who helped build the server’s foundation. It is the highest non-staff rank available.</div>
+  </details>
+
+  <div class="faq-category-title">🛠️ Staff & Roles</div>
+
+  <details>
+    <summary>Who is the Owner of Gearblock?</summary>
+    <div class="faq-content">Gearblock is owned and led by <b>6kamali</b> (Allee), the founder of the Kamali Network.</div>
+  </details>
+
+  <details>
+    <summary>Who are the current staff members?</summary>
+    <div class="faq-content">The current team includes <b>Ethancp2020</b> (Co-Owner), <b>A_Adwen</b> (Moderator), and <b>J3nson</b> (Trial Mod).</div>
+  </details>
+
+  <details>
+    <summary>Is Voids still on the team?</summary>
+    <div class="faq-content">Voids is currently a <b>Retired Co-Owner</b>. He remains part of the server’s history but is not active in daily management.</div>
+  </details>
+
+  <details>
+    <summary>What happened to v1.1 and v1.4?</summary>
+    <div class="faq-content">v1.1 was our first Mega Expansion, and v1.4 introduced the Backrooms. v1.5 (The Awakening) is the latest stable version.</div>
+  </details>
+
+  <div class="faq-category-title">📜 Server Rules</div>
+
+  <details>
+    <summary>Is trolling allowed?</summary>
+    <div class="faq-content">Staff members have access to trolling tools for fun community interactions, but player-on-player toxicity is strictly prohibited.</div>
+  </details>
+
+  <details>
+    <summary>What happens if I noclip in the lobby?</summary>
+    <div class="faq-content">Noclipping in the lobby will transport you to the <b>Backrooms</b> area, a custom liminal space added in the v1.4/v1.5 updates.</div>
+  </details>
+
+  <details>
+    <summary>How do I report a bug or a player?</summary>
+    <div class="faq-content">All reports should be filed through our official Discord server to ensure the staff team sees them immediately.</div>
+  </details>
+
+  <details>
+    <summary>Is the Tablist fixed in v1.5?</summary>
+    <div class="faq-content">Yes. v1.5 features a new Tablist that correctly displays player ranks and network information.</div>
+  </details>
+
+</section>
+  <style>
+  /* Keeping consistent with your sunset/dark theme */
+  .faq-category-title { color: #ffc371; font-size: 1.4rem; margin: 40px 0 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+  .faq-content { padding: 0 15px 15px 15px; opacity: 0.8; line-height: 1.6; font-size: 0.95rem; color: #ccc; }
+</style>
+
+<div class="faq-category-title">🛡️ Security & Account</div>
+
+<details>
+  <summary>Is my account safe on the Kamali Network?</summary>
+  <div class="faq-content">Yes. Since we are a Premium-only network, we rely on official Mojang authentication. We do not store your Minecraft passwords on our database.</div>
+</details>
+
+<details>
+  <summary>What should I do if I find a security exploit?</summary>
+  <div class="faq-content">Please report all exploits directly to <b>6kamali</b> or <b>Ethancp2020</b> via private DM on Discord. Exploits reported responsibly may be rewarded.</div>
+</details>
+
+<details>
+  <summary>Are alt accounts allowed?</summary>
+  <div class="faq-content">We generally allow one account per player. Using alts to bypass bans or manipulate stats in Warfare will result in a network-wide IP ban.</div>
+</details>
+
+<details>
+  <summary>Does Gearblock use anti-cheat software?</summary>
+  <div class="faq-content">Yes, we have active server-side protection to monitor for unusual movement and combat patterns in Nuketown and Warzone.</div>
+</details>
+
+<div class="faq-category-title">🌐 Website & Media</div>
+
+<details>
+  <summary>How often is www.gearblock.net updated?</summary>
+  <div class="faq-content">The website is updated alongside every major server patch (v1.1, v1.4, v1.5, etc.) to ensure the information and staff lists are current.</div>
+</details>
+
+<details>
+  <summary>Can I link my Discord account to my in-game rank?</summary>
+  <div class="faq-content">Yes. Once you receive a rank from Allee or Ethan, make sure to provide your Discord tag so your roles can be synced manually.</div>
+</details>
+
+<details>
+  <summary>Where can I find the official patch notes?</summary>
+  <div class="faq-content">Full patch notes for "The Awakening" and previous versions are archived right here on the home page under the Update section.</div>
+</details>
+
+<div class="faq-category-title">📅 Community & Events</div>
+
+<details>
+  <summary>How do I participate in Hide N Seek tournaments?</summary>
+  <div class="faq-content">Tournaments are announced in the Discord #announcements channel. Keep an eye out for scheduled weekend events!</div>
+</details>
+
+<details>
+  <summary>Can I suggest a new lobby feature?</summary>
+  <div class="faq-content">We value community feedback. Use the #suggestions channel in Discord to submit ideas for the v1.5 lobby or future updates.</div>
+</details>
+
+<details>
+  <summary>Is there a "Photo Mode" for taking screenshots?</summary>
+  <div class="faq-content">While we don't have a specific plugin, VIPs and MVPs can use their lobby perks to get better angles for screenshots and recordings.</div>
+</details>
 
 </div>
 
