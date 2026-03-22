@@ -82,50 +82,125 @@ function copyText() {
 }
 </script>
 
-<div id="update"></div>
-<div class="main2">
-  <a class="headline">Gearblock v1.5 — The Awakening Update ⚡</a>
+<style>
+  /* Modern Grid Layout */
+  .update-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
 
-  <div class="main2_features_div" style="max-width:900px; margin:auto; text-align:center;">
+  /* Card Base Styling */
+  .feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    <div class="main2_feature" style="border: 2px solid #FFD700; background: rgba(255, 215, 0, 0.1); border-radius: 10px; padding: 20px;">
-      <a class="main2_feature_headline" style="color: #FFD700;">💰 The Legacy Funding</a>
-      <a class="main2_feature_text">
-        Huge shoutout to <b>Ethan Parker</b> for the massive donation! <br>
-        With over 12,000 credits secured, the network is faster and more stable than ever. 
-        This donation has powered our jump to <b>v1.5</b> and secured our custom domain.
-      </a>
+  .feature-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    color: #eee;
+  }
+
+  /* Specific Highlight Variants */
+  .gold-glow {
+    border: 2px solid #FFD700 !important;
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0));
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  }
+
+  .red-warning {
+    border: 1px solid #ff4444 !important;
+    background: rgba(255, 68, 68, 0.05);
+  }
+
+  .headline-v15 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 40px;
+    display: block;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+
+<div id="update" style="padding: 60px 0;">
+  <a class="headline-v15">GEARBLOCK v1.5: THE AWAKENING ⚡</a>
+
+  <div class="update-container">
+
+    <div class="feature-card gold-glow">
+      <div>
+        <span class="card-title" style="color: #FFD700;">💰 Legacy Funding</span>
+        <p class="card-text">
+          Massive salute to <b>Ethan Parker</b>. With <b>12,000+ credits</b> secured, the network is officially future-proof. 
+          This support made v1.5 and our custom domain a reality.
+        </p>
+      </div>
     </div>
 
-    <div class="main2_feature">
-      <a class="main2_feature_headline">👑 Support the Network (Ranks)</a>
-      <a class="main2_feature_text">
-        Want to stand out in the new <b>Dynamic Tablist</b>?<br>
-        Ranks are currently handled manually via Discord. <br>
-        <b>VIP:</b> Custom prefix & chat colors.<br>
-        <b>MVP:</b> All VIP perks + lobby flight.<br>
-        <b>FOUNDER:</b> The ultimate rank. Extreme rare.
-      </a>
+    <div class="feature-card">
+      <div>
+        <span class="card-title" style="color: #fff;">👑 Network Ranks</span>
+        <p class="card-text">
+          Stand out in the <b>Dynamic Tablist</b>. Ranks are handled manually via Discord:<br><br>
+          • <b>VIP:</b> Custom prefix & colors<br>
+          • <b>MVP:</b> All VIP + Lobby Flight<br>
+          • <b>FOUNDER:</b> The ultimate legacy status.
+        </p>
+      </div>
     </div>
 
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🔫 COD: Warfare Expansion</a>
-      <a class="main2_feature_text">
-        Classic CoD maps rebuilt with high-res gun textures:<br>
-        <b>Nuketown | Gulag | Baywatch | Stormfront</b>
-      </a>
+    <div class="feature-card">
+      <div>
+        <span class="card-title" style="color: #fff;">🔫 Warfare Expansion</span>
+        <p class="card-text">
+          Call of Duty, reimagined in Minecraft. High-res textures on legendary battlefields:<br><br>
+          <b>Nuketown | Gulag | Baywatch | Stormfront</b>
+        </p>
+      </div>
     </div>
 
-    <div class="main2_feature" style="border: 1px solid #ff4444; border-radius: 10px;">
-      <a class="main2_feature_headline" style="color: #ff4444;">⚠️ Warning: The Backrooms</a>
-      <a class="main2_feature_text">
-        If you "noclip" through the floor, don't panic. Just find the exit before the humming stops.
-      </a>
+    <div class="feature-card red-warning">
+      <div>
+        <span class="card-title" style="color: #ff4444;">⚠️ The Backrooms</span>
+        <p class="card-text">
+          Reality is thinning. If you <b>noclip</b> through the lobby floor, stay calm. 
+          Find the exit before the humming stops... or you might never leave.
+        </p>
+      </div>
     </div>
 
   </div>
 </div>
-
 <!-- FEATURES -->
 <div id="more"></div>
 <div class="main2">
