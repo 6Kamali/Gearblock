@@ -4,12 +4,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gearblock Minecraft Server</title>
-
+  <div class="main1">
+  <div class="branding_container" style="margin-bottom: 10px;">
+    <h1 style="
+      font-size: 3rem; 
+      font-weight: 900; 
+      margin: 0; 
+      text-transform: uppercase; 
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #ff5f6d, #ffc371); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 4px 10px rgba(255, 95, 109, 0.3));
+    ">
+      KAMALI NETWORK
+    </h1>
+    <h2 style="
+      font-size: 1.5rem; 
+      color: #ffffff; 
+      margin: -10px 0 20px 0; 
+      font-weight: 300; 
+      letter-spacing: 8px; 
+      opacity: 0.9;
+    ">
+      GEARBLOCK
+    </h2>
+  </div>
   <link rel="icon" type="image/png" href="media/favicon.png">
   <link rel="stylesheet" href="media/style.css">
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
 </head>
 
 <body>
@@ -30,92 +55,71 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="main1">
   <img class="main1_logo" src="media/logo.png" alt="Gearblock">
   <div class="main1_description">
     <a>Minecraft,<br>done</a>
-    <a class="main1_actcent">Fun</a><a>.</a>
+    <a class="main1_actcent">Right</a><a>.</a>
+  </div>
+
+  <div class="server-status-bar" style="margin-bottom: 20px; font-family: sans-serif;">
+    <span style="color: #2ecc71; font-weight: bold;">● ONLINE</span> 
+    <span style="color: white; margin-left: 10px;">
+      Players: <span data-playercounter-ip="play.gearblock.net" data-playercounter-format="{online} / {max}">0 / 0</span>
+    </span>
   </div>
 
   <button class="main1_ipcopier" onclick="copyText()" type="button">
-    <span class="main1_ipcopier_text1">gearblock.exaroton.me</span><br>
-    <span class="main1_ipcopier_text2">Click to copy</span>
+    <span class="main1_ipcopier_text1">play.gearblock.net</span><br>
+    <span class="main1_ipcopier_text2">Click to copy IP</span>
   </button>
 </div>
 
 <script>
 function copyText() {
-  navigator.clipboard.writeText("gearblock.exaroton.me");
+  navigator.clipboard.writeText("play.gearblock.net");
+  alert("IP Copied! See you in the lobby.");
 }
 </script>
 
 <div id="update"></div>
 <div class="main2">
-  <a class="headline">Gearblock v1.1 — The Mega Expansion Update ⚙️</a>
+  <a class="headline">Gearblock v1.5 — The Awakening Update ⚡</a>
 
   <div class="main2_features_div" style="max-width:900px; margin:auto; text-align:center;">
 
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🛡️ Post-Purge Fortification</a>
+    <div class="main2_feature" style="border: 2px solid #FFD700; background: rgba(255, 215, 0, 0.1); border-radius: 10px; padding: 20px;">
+      <a class="main2_feature_headline" style="color: #FFD700;">💰 The Legacy Funding</a>
       <a class="main2_feature_text">
-        The hackers tried to delete us; they only made us stronger.<br>
-        We have officially moved past the recovery phase. <br>
-        **Security Patch:** New internal firewalls and permission hierarchies have been implemented.<br>
-        The "Good Job" debug spam has been purged from the system. We are back, stabilized, and locked down.
+        Huge shoutout to <b>Ethan Parker</b> for the massive donation! <br>
+        With over 12,000 credits secured, the network is faster and more stable than ever. 
+        This donation has powered our jump to <b>v1.5</b> and secured our custom domain.
       </a>
     </div>
 
     <div class="main2_feature">
-      <a class="main2_feature_headline">🎯 Ghost Sniper: The Rebirth</a>
+      <a class="main2_feature_headline">👑 Support the Network (Ranks)</a>
       <a class="main2_feature_text">
-        Our flagship weapon has been completely re-engineered.<br>
-        Features new precision hit-detection, custom particle trails, and balanced recoil.<br>
-        The ultimate long-range tool is now more lethal than ever.
+        Want to stand out in the new <b>Dynamic Tablist</b>?<br>
+        Ranks are currently handled manually via Discord. <br>
+        <b>VIP:</b> Custom prefix & chat colors.<br>
+        <b>MVP:</b> All VIP perks + lobby flight.<br>
+        <b>FOUNDER:</b> The ultimate rank. Extreme rare.
       </a>
     </div>
 
     <div class="main2_feature">
-      <a class="main2_feature_headline">☢️ Call of Duty: Nuketown Warfare</a>
+      <a class="main2_feature_headline">🔫 COD: Warfare Expansion</a>
       <a class="main2_feature_text">
-        A legendary map enters the Gearblock universe.<br>
-        Fast-paced, close-quarters gunplay featuring Quality Armory integration.<br>
-        Choose your loadout and dominate the neighborhood.
+        Classic CoD maps rebuilt with high-res gun textures:<br>
+        <b>Nuketown | Gulag | Baywatch | Stormfront</b>
       </a>
     </div>
 
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🌀 Spawn & Portal Rearrangement</a>
+    <div class="main2_feature" style="border: 1px solid #ff4444; border-radius: 10px;">
+      <a class="main2_feature_headline" style="color: #ff4444;">⚠️ Warning: The Backrooms</a>
       <a class="main2_feature_text">
-        No more confusing navigation. The hub has been streamlined.<br>
-        Portals have been moved for instant access to BedWars, Nuketown, and more.<br>
-        New "Coming Soon" sections added for future expansions.
-      </a>
-    </div>
-
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🚀 Project Gearblock 1.1</a>
-      <a class="main2_feature_text">
-        The "REDACTED" modes from v0.9 are slowly being revealed.<br>
-        The economy has been re-synced with Vault for 100% accuracy.<br>
-        Expect cleaner ranks and more rewards for active players.
-      </a>
-    </div>
-
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🎮 BedWars & Hide & Seek</a>
-      <a class="main2_feature_text">
-        Mechanical fixes for BedWars generators.<br>
-        Two new hiding spots added to the latest Hide & Seek maps.
-      </a>
-    </div>
-
-    <div class="main2_feature">
-      <a class="main2_feature_headline">🔗 Connect & Play</a>
-      <a class="main2_feature_text">
-        IP: <b>Gearblock.exaroton.me</b><br>
-        Join the new Discord for giveaways and patch notes:<br>
-        <span style="color:#5865F2;">discord.gg/pdXB9F9vwu</span>
+        If you "noclip" through the floor, don't panic. Just find the exit before the humming stops.
       </a>
     </div>
 
@@ -209,6 +213,128 @@ function copyText() {
 
   </div>
 </div>
+  Let's flesh this out with the "heavy hitters"—the sections that make a server feel like a massive, organized network rather than just a hobby project.
+
+Here are 6 additional high-impact sections, including a formal Staff Application portal, a "Hall of Fame," and a "Server Lore" archive.
+
+HTML
+<style>
+  .apply-btn { background: #ff5f6d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px; transition: 0.3s; }
+  .apply-btn:hover { background: #ffc371; transform: scale(1.05); }
+  .lore-box { border-left: 2px solid #ffc371; padding-left: 20px; margin: 20px 0; font-style: italic; opacity: 0.8; }
+</style>
+
+<div class="section-container">
+
+  <section id="applications" style="margin-top: 100px; border: 1px solid rgba(255, 95, 109, 0.4); padding: 40px; border-radius: 15px; background: rgba(255, 95, 109, 0.03);">
+    <h2 class="section-title">Join the <span class="sunset-text">Staff Team</span></h2>
+    <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: center;">
+      <div style="flex: 1; min-width: 300px;">
+        <p>Think you have what it takes to keep Gearblock running smoothly? We are currently looking for dedicated individuals to join our ranks. We need builders, moderators, and technical specialists.</p>
+        <p><strong>Requirements:</strong> Must be active on Discord, have a working mic, and understand the v1.5 Warfare mechanics.</p>
+      </div>
+      <div style="flex: 1; text-align: center; border: 1px solid rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+        <h3 style="margin-top:0;">Open Positions</h3>
+        <ul style="list-style: none; padding: 0; opacity: 0.8;">
+          <li>🛡️ Trainee Moderator</li>
+          <li>🔨 Creative Builder</li>
+          <li>💻 Plugin Developer</li>
+        </ul>
+        <a href="https://discord.gg/MTyUUyA5TS" class="apply-btn">APPLY VIA DISCORD</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall-of-fame" style="margin-top: 80px; text-align: center;">
+    <h2 class="section-title">Network <span class="sunset-text">Legends</span></h2>
+    <div class="grid-3">
+      <div class="card" style="border: 1px solid #FFD700;">
+        <h2 style="color: #FFD700; margin-bottom: 5px;">#1</h2>
+        <h3>Ethan Parker</h3>
+        <p style="font-size: 0.8rem; opacity: 0.6;">The 12k Credit King</p>
+      </div>
+      <div class="card">
+        <h2 style="margin-bottom: 5px;">#2</h2>
+        <h3>[TOP VOTER]</h3>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Most Votes This Month</p>
+      </div>
+      <div class="card">
+        <h2 style="margin-bottom: 5px;">#3</h2>
+        <h3>[WARFARE CHAMP]</h3>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Highest K/D on Nuketown</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lore" style="margin-top: 80px;">
+    <h2 class="section-title"><span class="sunset-text">The Archives</span></h2>
+    <div class="lore-box">
+      <p>"In the beginning, there was only the block. Then came the Purge. The network flickered, but the Founders held the line. From the ashes of v0.9, the Gearblock Resurrection began, leading us to the current Awakening of v1.5..."</p>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+      <p><strong>v1.1:</strong> The Mega Expansion. <br>
+      <strong>v1.4:</strong> The Backrooms Incident. <br>
+      <strong>v1.5:</strong> The Call of Duty Integration.</p>
+    </div>
+  </section>
+
+  <section id="media" style="margin-top: 80px;">
+    <h2 class="section-title">Partnered <span class="sunset-text">Creators</span></h2>
+    <p style="text-align:center;">Stream Gearblock? Record clips? Get the <b>[MEDIA]</b> rank and be featured here!</p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+      <div style="width: 150px; height: 150px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #ff5f6d;">
+        <span>YOUTUBE</span>
+      </div>
+      <div style="width: 150px; height: 150px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #6441a5;">
+        <span>TWITCH</span>
+      </div>
+      <div style="width: 150px; height: 150px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #00f2ea;">
+        <span>TIKTOK</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" style="margin-top: 80px; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 10px;">
+    <h2 class="section-title">Network <span class="sunset-text">Rules</span></h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+      <div>
+        <h4>1. No Unfair Advantages</h4>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Hacking, X-Ray, or exploits will result in a permanent hardware ban.</p>
+      </div>
+      <div>
+        <h4>2. Respect the Staff</h4>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Our staff are volunteers. Harassment is not tolerated.</p>
+      </div>
+      <div>
+        <h4>3. Toxicity</h4>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Keep the trash talk in the Warfare maps. Don't take it to the DMs.</p>
+      </div>
+      <div>
+        <h4>4. Reporting</h4>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Use /report in-game or open a ticket on Discord for any issues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="margin-top: 80px; margin-bottom: 100px;">
+    <h2 class="section-title"><span class="sunset-text">F.A.Q.</span></h2>
+    <div style="text-align: left; max-width: 700px; margin: auto;">
+      <details style="margin-bottom: 15px; cursor: pointer;">
+        <summary style="font-weight: bold; font-size: 1.1rem; padding: 10px; background: rgba(255,255,255,0.05);">What version do I need to join?</summary>
+        <p style="padding: 10px; opacity: 0.7;">Gearblock v1.5 is optimized for 1.20.x, but we support most modern versions via ViaVersion.</p>
+      </details>
+      <details style="margin-bottom: 15px; cursor: pointer;">
+        <summary style="font-weight: bold; font-size: 1.1rem; padding: 10px; background: rgba(255,255,255,0.05);">How do I get the Backrooms gear?</summary>
+        <p style="padding: 10px; opacity: 0.7;">You must successfully "noclip" and find the hidden crate in Level 0.</p>
+      </details>
+      <details style="margin-bottom: 15px; cursor: pointer;">
+        <summary style="font-weight: bold; font-size: 1.1rem; padding: 10px; background: rgba(255,255,255,0.05);">Is the server Cracked or Premium?</summary>
+        <p style="padding: 10px; opacity: 0.7;">We are a Premium-only network to ensure the highest security and stability for our players.</p>
+      </details>
+    </div>
+  </section>
+
+</div>
 
 <!-- JOIN -->
 <div id="join"></div>
@@ -218,19 +344,19 @@ function copyText() {
   <div class="main3_join_div_div">
     <div class="main3_join_div">
       <a class="main3_join_title">Java</a>
-      <a>IP: gearblock.exaroton.me</a>
+      <a>IP: Play.gearblock.net</a>
       <a>Version: 1.21.11+</a>
     </div>
     <div class="main3_join_div">
       <a class="main3_join_title">Bedrock</a>
-      <a>IP: gearblock.exaroton.me</a>
+      <a>IP: Gearblock.exaroton.me</a>
       <a>Port: 19132</a>
     </div>
   </div>
 </div>
 
 <footer class="copyright_div">
-  <a class="copyright">© Gearblock Minecraft Server</a>
+  <a class="copyright">© Kamali Network</a>
 </footer>
 
 </body>
