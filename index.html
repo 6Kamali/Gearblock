@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gearblock | Something New Is Coming</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0c0c0c;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: radial-gradient(circle, #1a1a1a 1%, #0c0c0c 100%);
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #2ecc71; /* Gearblock Green */
+            text-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+        }
+
+        p.subtitle {
+            font-size: 1.4rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Countdown Timer Styling */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 100px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .time-box .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* Ambient Glow Effect */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #2ecc71;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <div class="container">
+        <h1>Something New Is Coming</h1>
+        <p class="subtitle">Gearblock is evolving. Get ready.</p>
+
+        <div id="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <div class="label">Mins</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <div class="label">Secs</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the countdown date to July 1, 2026 00:00:00
+        const countdownDate = new Date("July 1, 2026 00:00:00").getTime();
+
+        const updateCountdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the numbers (add a leading zero if less than 10)
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            // If the countdown is finished, automatically forward to the original homepage
+            if (distance < 0) {
+                clearInterval(updateCountdown);
+                window.location.href = "home.html"; 
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
