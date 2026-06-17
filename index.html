@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gearblock | Something New Is Coming</title>
+    <title>Gearblock | Try Again</title>
     <style>
         * {
             box-sizing: border-box;
@@ -26,10 +26,18 @@
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 40px;
             z-index: 10;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            max-width: 650px;
+            width: 90%;
         }
 
+        /* Glitched Try Again Heading */
         h1 {
             font-size: 3rem;
             letter-spacing: 4px;
@@ -37,57 +45,159 @@
             margin-bottom: 10px;
             color: #2ecc71; /* Gearblock Green */
             text-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+            position: relative;
+            display: inline-block;
+            animation: mainGlitch 4s infinite;
+        }
+        
+        h1::before, h1::after {
+            content: "TRY AGAIN";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent;
+        }
+        h1::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitchLines 5s infinite linear alternate-reverse;
+        }
+        h1::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 0 2px 3px rgba(0,0,0,0.3);
+            clip: rect(85px, 450px, 140px, 0);
+            animation: glitchLines 3s infinite linear alternate-reverse;
         }
 
         p.subtitle {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #a0a0a0;
             margin-bottom: 40px;
-            font-style: italic;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         /* Countdown Timer Styling */
         #countdown {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-bottom: 40px;
+            gap: 20px;
+            margin-bottom: 30px;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px 10px;
             min-width: 100px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(4px);
+            transition: border-color 0.3s;
+        }
+        .time-box:hover {
+            border-color: rgba(46, 204, 113, 0.3);
         }
 
         .time-box span {
             display: block;
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 800;
             color: #fff;
+            line-height: 1.1;
         }
 
         .time-box .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            color: #888;
+            color: #666;
             letter-spacing: 2px;
-            margin-top: 5px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* End of Timer Display Content */
+        #launch-message {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            margin-top: 10px;
+            padding: 20px;
+        }
+        
+        #launch-message h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        #launch-message p {
+            color: #2ecc71;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* 30-Second Easter Egg Container */
+        .secret-glitch-box {
+            margin-top: 10px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 1s ease, max-height 1s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+        .secret-glitch-box.reveal {
+            opacity: 1;
+            max-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .scramble {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #e74c3c;
+            text-shadow: 0 0 8px rgba(231, 76, 60, 0.4);
+            letter-spacing: 1px;
         }
 
         /* Ambient Glow Effect */
         .glow {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             background: #2ecc71;
-            filter: blur(150px);
-            opacity: 0.15;
+            filter: blur(180px);
+            opacity: 0.12;
             pointer-events: none;
+        }
+
+        /* Glitch Animation Rules */
+        @keyframes mainGlitch {
+            0%, 100% { transform: skew(0deg); }
+            2% { transform: skew(2deg); }
+            4% { transform: skew(-1deg); }
+            5% { transform: skew(0deg); }
+        }
+        @keyframes glitchLines {
+            0% { clip: rect(32px, 9999px, 55px, 0); }
+            10% { clip: rect(12px, 9999px, 85px, 0); }
+            20% { clip: rect(75px, 9999px, 115px, 0); }
+            30% { clip: rect(5px, 9999px, 40px, 0); }
+            40% { clip: rect(90px, 9999px, 130px, 0); }
+            50% { clip: rect(22px, 9999px, 10px, 0); }
+            60% { clip: rect(112px, 9999px, 63px, 0); }
+            70% { clip: rect(4px, 9999px, 95px, 0); }
+            80% { clip: rect(83px, 9999px, 125px, 0); }
+            90% { clip: rect(50px, 9999px, 20px, 0); }
+            100% { clip: rect(100px, 9999px, 80px, 0); }
         }
     </style>
 </head>
@@ -96,8 +206,8 @@
     <div class="glow"></div>
 
     <div class="container">
-        <h1>Something New Is Coming</h1>
-        <p class="subtitle">Gearblock is evolving. Get ready.</p>
+        <h1>Try Again</h1>
+        <p class="subtitle" id="page-subtitle">Evolving background matrix protocols. Next sync cycle initialized.</p>
 
         <div id="countdown">
             <div class="time-box">
@@ -117,34 +227,21 @@
                 <div class="label">Secs</div>
             </div>
         </div>
+
+        <div id="launch-message">
+            <h2>Leak #1</h2>
+            <p>Backrooms Portal And Coalking Joins Staff Team</p>
+        </div>
+
+        <div class="secret-glitch-box" id="secret-box">
+            <div class="scramble" data-value="new Admin?">new Admin?</div>
+            <div class="scramble" data-value="spawn revamped?" style="color: #2ecc71; text-shadow: 0 0 8px rgba(46,204,113,0.4);">spawn revamped?</div>
+        </div>
     </div>
 
     <script>
-        // Set the countdown date to July 1, 2026 00:00:00
-        const countdownDate = new Date("July 1, 2026 00:00:00").getTime();
-
-        const updateCountdown = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-
-            // Time calculations
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the numbers (add a leading zero if less than 10)
-            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
-
-            // If the countdown is finished, automatically forward to the original homepage
-            if (distance < 0) {
-                clearInterval(updateCountdown);
-                window.location.href = "home.html"; 
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+        function getNextWednesday9PM() {
+            const now = new Date();
+            const target = new Date();
+            
+            // Set target parameters to Wednesday (day 3) at 21:
