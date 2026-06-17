@@ -3,200 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gearblock Network | Coming Soon</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gearblock | Try Again</title>
     <style>
-        :root {
-            --emerald: #2ecc71;
-            --emerald-glow: rgba(46, 204, 113, 0.4);
-            --glass-bg: rgba(15, 18, 15, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-dim: #b3b3b3;
-            --blur: blur(16px);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
 
         body {
-            background: #050505 url('https://media.forgecdn.net/attachments/257/822/2019-07-25_19.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: var(--text-main);
-            min-height: 100vh;
+            background-color: #0c0c0c;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            overflow: hidden;
+            background-image: radial-gradient(circle, #1a1a1a 1%, #0c0c0c 100%);
         }
 
-        .splash-container {
-            max-width: 700px;
-            width: 100%;
-        }
-
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 60px 40px;
+        .container {
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            padding: 40px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            max-width: 650px;
+            width: 90%;
         }
 
-        .logo { 
-            font-size: 2rem; 
-            font-weight: 800; 
-            letter-spacing: -1px; 
-            margin-bottom: 30px;
+        /* Glitched Try Again Heading */
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #2ecc71; /* Gearblock Green */
+            text-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+            position: relative;
+            display: inline-block;
+            animation: mainGlitch 4s infinite;
         }
-        .logo span { color: var(--emerald); }
-
-        h1 { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            margin-bottom: 15px; 
-            line-height: 1.1;
-        }
-        h1 span { color: var(--emerald); }
         
-        .sub-text { 
-            color: var(--text-dim); 
-            font-size: 1.2rem; 
-            margin-bottom: 40px; 
-            font-weight: 500;
+        h1::before, h1::after {
+            content: "TRY AGAIN";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent;
+        }
+        h1::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitchLines 5s infinite linear alternate-reverse;
+        }
+        h1::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 0 2px 3px rgba(0,0,0,0.3);
+            clip: rect(85px, 450px, 140px, 0);
+            animation: glitchLines 3s infinite linear alternate-reverse;
         }
 
-        /* Countdown Grid Styles */
-        .countdown-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 50px;
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Countdown Timer Styling */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             padding: 20px 10px;
-            backdrop-filter: blur(5px);
+            min-width: 100px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s;
+        }
+        .time-box:hover {
+            border-color: rgba(46, 204, 113, 0.3);
         }
 
-        .time-box .number {
+        .time-box span {
+            display: block;
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--text-main);
-            display: block;
-            line-height: 1;
-            margin-bottom: 5px;
+            color: #fff;
+            line-height: 1.1;
         }
 
         .time-box .label {
             font-size: 0.75rem;
             text-transform: uppercase;
-            color: var(--emerald);
+            color: #666;
             letter-spacing: 2px;
-            font-weight: 700;
+            margin-top: 8px;
+            font-weight: 600;
         }
 
-        /* Continue Button */
-        .continue-btn {
-            display: inline-block;
-            background: var(--emerald);
-            color: #000 !important;
-            font-weight: 800;
-            padding: 16px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            letter-spacing: 1px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 20px var(--emerald-glow);
-            cursor: pointer;
-            border: none;
+        /* End of Timer Display Content */
+        #launch-message {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            margin-top: 10px;
+            padding: 20px;
+        }
+        
+        #launch-message h2 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
-        .continue-btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 0 35px var(--emerald);
-            filter: brightness(1.1);
+        #launch-message p {
+            color: #2ecc71;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        @media (max-width: 500px) {
-            h1 { font-size: 2.5rem; }
-            .countdown-container { grid-template-columns: repeat(2, 1fr); }
-            .time-box { padding: 15px 5px; }
-            .time-box .number { font-size: 2rem; }
+        /* 30-Second Easter Egg Container */
+        .secret-glitch-box {
+            margin-top: 10px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 1s ease, max-height 1s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+        .secret-glitch-box.reveal {
+            opacity: 1;
+            max-height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .scramble {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #e74c3c;
+            text-shadow: 0 0 8px rgba(231, 76, 60, 0.4);
+            letter-spacing: 1px;
+        }
+
+        /* Ambient Glow Effect */
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #2ecc71;
+            filter: blur(180px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        /* Glitch Animation Rules */
+        @keyframes mainGlitch {
+            0%, 100% { transform: skew(0deg); }
+            2% { transform: skew(2deg); }
+            4% { transform: skew(-1deg); }
+            5% { transform: skew(0deg); }
+        }
+        @keyframes glitchLines {
+            0% { clip: rect(32px, 9999px, 55px, 0); }
+            10% { clip: rect(12px, 9999px, 85px, 0); }
+            20% { clip: rect(75px, 9999px, 115px, 0); }
+            30% { clip: rect(5px, 9999px, 40px, 0); }
+            40% { clip: rect(90px, 9999px, 130px, 0); }
+            50% { clip: rect(22px, 9999px, 10px, 0); }
+            60% { clip: rect(112px, 9999px, 63px, 0); }
+            70% { clip: rect(4px, 9999px, 95px, 0); }
+            80% { clip: rect(83px, 9999px, 125px, 0); }
+            90% { clip: rect(50px, 9999px, 20px, 0); }
+            100% { clip: rect(100px, 9999px, 80px, 0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="splash-container">
-        <div class="glass-panel">
-            <div class="logo">GEAR<span>BLOCK</span></div>
-            
-            <h1>Something <span>New</span> Is Coming.</h1>
-            <p class="sub-text">We are crafting an updated experience. Get ready for the next chapter.</p>
-            
-            <div class="countdown-container">
-                <div class="time-box">
-                    <span class="number" id="days">00</span>
-                    <span class="label">Days</span>
-                </div>
-                <div class="time-box">
-                    <span class="number" id="hours">00</span>
-                    <span class="label">Hours</span>
-                </div>
-                <div class="time-box">
-                    <span class="number" id="minutes">00</span>
-                    <span class="label">Mins</span>
-                </div>
-                <div class="time-box">
-                    <span class="number" id="seconds">00</span>
-                    <span class="label">Secs</span>
-                </div>
-            </div>
+    <div class="glow"></div>
 
-            <a href="home.html" class="continue-btn">Continue to Website <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+    <div class="container">
+        <h1>Try Again</h1>
+        <p class="subtitle" id="page-subtitle">Evolving background matrix protocols. Next sync cycle initialized.</p>
+
+        <div id="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <div class="label">Mins</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <div class="label">Secs</div>
+            </div>
+        </div>
+
+        <div id="launch-message">
+            <h2>Leak #1</h2>
+            <p>Backrooms Portal And Coalking Joins Staff Team</p>
+        </div>
+
+        <div class="secret-glitch-box" id="secret-box">
+            <div class="scramble" data-value="new Admin?">new Admin?</div>
+            <div class="scramble" data-value="spawn revamped?" style="color: #2ecc71; text-shadow: 0 0 8px rgba(46,204,113,0.4);">spawn revamped?</div>
         </div>
     </div>
 
     <script>
-        // Set the countdown target date: July 1st, 2026 00:00:00
-        const targetDate = new Date("July 1, 2026 00:00:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            // Output the results into the elements, adding leading zeros if number < 10
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
-            // If the countdown is over, show all zeros
-            if (difference < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
+        function getNextWednesday9PM() {
+            const now = new Date();
+            const target = new Date();
+            
+            // Set target parameters to Wednesday (day Index 3) at 21:00:00 (9:00 PM)
+            target.setDate(now.getDate() + (3 - now.getDay() + 7) % 7);
+            target.setHours(21, 0, 0, 0);
+            
+            // If it is currently past 9:00 PM on Wednesday, roll forward to next week's loop block
+            if (target <= now) {
+                target.setDate(target.getDate() + 7);
             }
+            return target.getTime();
         }
 
-        // Run immediately on load, then tick every second
-        updateCountdown();
-        const countdownInterval = setInterval(updateCountdown, 1000);
+        const countdownDate = getNextWednesday9PM();
+
+        const updateCountdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            // When countdown reaches 0, trigger layout switch
+            if (distance < 0) {
+                clearInterval(updateCountdown);
+                
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("page-subtitle").style.opacity = "0";
+                
+                const msgBox = document.getElementById("launch-message");
+                msgBox.style.display = "block";
+                setTimeout(() => {
+                    msgBox.style.opacity = "1";
+                }, 50);
+            }
+        }, 1000);
+
+        // Reveals the readable matrix hint data blocks after 30 seconds
+        setTimeout(() => {
+            const secretBox = document.getElementById('secret-box');
+            if(secretBox) secretBox.classList.add('reveal');
+        }, 30000);
+
+        // Terminal text flicker engine
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrambleElements = document.querySelectorAll('.scramble');
+            const chars = "¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑ";
+
+            scrambleElements.forEach(element => {
+                const targetText = element.getAttribute('data-value');
+                
+                setInterval(() => {
+                    let output = "";
+                    const isGlitchedFrame = Math.random() < 0.12; 
+
+                    for (let i = 0; i < targetText.length; i++) {
+                        if (targetText[i] === " ") {
+                            output += " ";
+                        } else if (isGlitchedFrame && Math.random() < 0.25) {
+                            output += chars[Math.floor(Math.random() * chars.length)];
+                        } else {
+                            output += targetText[i];
+                        }
+                    }
+                    element.textContent = output;
+                }, 70);
+            });
+        });
     </script>
 </body>
 </html>
